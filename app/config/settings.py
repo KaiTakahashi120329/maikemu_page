@@ -127,3 +127,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# WYSIWYGの設定
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# 画像の保存場所の指定
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
