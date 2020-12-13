@@ -1,0 +1,33 @@
+from django.db import models
+from django.utils import timezone
+
+# カテゴリーモデル
+class Category(models.Model):
+    name = models.CharField('カテゴリー', max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'カテゴリー'
+        verbose_name_plural = 'カテゴリー'
+
+# 投稿機能のモデル
+class BaseModel(models.Model):
+    title = models.CharField('タイトル', max_length=50)
+    description = models.CharField('説明（25文字）', max_length=25, null=True)
+    text = models.TextField('メインコンテンツ')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    publish_at = models.DateTimeField('予約時間', default=timezone.now)
+    category = models.ForeignKey(
+        Category, verbose_name = 'カテゴリー',
+        on_delete = models.PROTECT
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = '投稿'
+        verbose_name_plural = '投稿'
