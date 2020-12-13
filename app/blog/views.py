@@ -14,3 +14,7 @@ def BlogFunc(request):
 def ListFunc(request):
     publish_list = BaseModel.objects.published()
     return render(request, 'list.html',  {'publish_list':publish_list})
+
+def DetailFunc(request, pk):
+    object = get_object_or_404(BaseModel, pk=pk)
+    return render(request, 'detail.html', {'object':object})
