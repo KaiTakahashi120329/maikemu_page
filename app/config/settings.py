@@ -134,3 +134,13 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 # 画像の保存場所の指定
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+# お問い合わせフォームの設定
+# メールを実際に送らず、コンソール画面へ表示する
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'gmailアカウント名'
+EMAIL_HOST_PASSWORD = 'gmailパスワード'
+EMAIL_USE_TLS = True
