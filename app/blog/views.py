@@ -4,9 +4,9 @@ import datetime
 
 def CategoryFunc(request, category):
     category = Category.objects.get(name=category)
-    object_list = BaseModel.objects.all().filter(category=category)
-    return render(request, 'category.html', { 'category':category, 'object_list':object_list})
+    publish_list = BaseModel.objects.published().filter(category=category)
+    return render(request, 'category.html', { 'category':category, 'publish_list':publish_list})
 
 def BlogFunc(request):
-    object_list = BaseModel.objects.all()
-    return render(request, 'top.html',  {'object_list':object_list})
+    publish_list = BaseModel.objects.published()
+    return render(request, 'top.html',  {'publish_list':publish_list})
