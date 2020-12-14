@@ -20,6 +20,7 @@ class DiaryQuerySet(models.QuerySet):
 # 投稿機能のモデル
 class BaseModel(models.Model):
     title = models.CharField('タイトル', max_length=50)
+    image = models.ImageField(upload_to='media/', null=True)
     description = models.CharField('説明（25文字）', max_length=25, null=True)
     text = models.TextField('メインコンテンツ')
     created_at = models.DateTimeField(auto_now_add=True)
