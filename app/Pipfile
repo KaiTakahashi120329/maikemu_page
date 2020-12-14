@@ -8,6 +8,9 @@ django = "*"
 django-summernote = "*"
 pillow = "*"
 psycopg2-binary = "*"
+libsass = "*"
+django-compressor = "*"
+django-sass-processor = "*"
 
 [dev-packages]
 
