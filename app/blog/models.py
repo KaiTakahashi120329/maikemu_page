@@ -20,13 +20,13 @@ class DiaryQuerySet(models.QuerySet):
 # 投稿機能のモデル
 class BaseModel(models.Model):
     title = models.CharField('タイトル', max_length=50)
-    image = models.ImageField(upload_to='media/', null=True)
+    image = models.ImageField('サムネイル', upload_to='media/', null=True)
     description = models.CharField('説明（25文字）', max_length=25, null=True)
     text = models.TextField('メインコンテンツ')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     publish_at = models.DateTimeField('予約時間', default=timezone.now)
-    views = models.PositiveIntegerField(default=0)
+    views = models.PositiveIntegerField(default=0, editable=False)
     category = models.ForeignKey(
         Category, verbose_name = 'カテゴリー',
         on_delete = models.PROTECT
