@@ -25,6 +25,7 @@ class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     publish_at = models.DateTimeField('予約時間', default=timezone.now)
+    views = models.PositiveIntegerField(default=0)
     category = models.ForeignKey(
         Category, verbose_name = 'カテゴリー',
         on_delete = models.PROTECT

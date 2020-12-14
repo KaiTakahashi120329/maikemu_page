@@ -13,14 +13,17 @@ def CategoryFunc(request, category):
 
 def BlogFunc(request):
     publish_list = BaseModel.objects.published()
-    return render(request, 'top.html',  {'publish_list':publish_list})
+    blog_views = BaseModel.objects.published().order_by('-views')
+    return render(request, 'top.html',  {'publish_list':publish_list, 'blog_views':blog_views})
 
 def ListFunc(request):
     publish_list = BaseModel.objects.published()
     return render(request, 'list.html',  {'publish_list':publish_list})
 
 def DetailFunc(request, pk):
-    object = get_object_or_404(BaseModel, pk=pk)
+    objects = get_object_or_404(BaseModel, pk=pk)
+    objects.views += 1
+    objects.save()
     return render(request, 'detail.html', {'object':object})
 
 # お問い合わせ
