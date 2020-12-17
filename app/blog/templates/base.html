@@ -72,11 +72,13 @@
             <div class="header__nav-list__hide-nav">
               <span class="header__nav-list__hide-nav__title">カテゴリー</span>
               <ul class="header__nav-list__hide-nav__list">
+                {% for category in category_list %}
                 <li>
-                  <a href="">
-                    <span class="header__nav-list__hide-nav__item__subTitle">今週の練習予定</span>
+                  <a href='{% url 'category' category.name %}'>
+                    {{ category.name }}
                   </a>
                 </li>
+                {% endfor %}
               </ul>
             </div>
           </li>
@@ -96,8 +98,17 @@
       </nav>
     </header>
 
+    {% comment %} 
+    ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+    {% endcomment %}
+
     {% block content %}
+      <img src="../../media/base/sample.jpg" alt="まいけむSTC">
     {% endblock content %}
+    
+    {% comment %}
+    ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+    {% endcomment %}
 
     <!-- footer -->
     <footer class="footer">
