@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{% sass_src '../static/config/common.scss' %}">
     <link rel="stylesheet" href="{% sass_src '../static/config/reset.scss' %}">
     {% block head %}
+    <link rel="stylesheet" href="{% sass_src '../static/base/content/style.scss' %}">
     {% endblock head %}
   </head>
 
@@ -103,7 +104,50 @@
     {% endcomment %}
 
     {% block content %}
-      <img src="../../media/base/sample.jpg" alt="まいけむSTC">
+    <main>
+      <div class="main__imageWrapper">
+        <img src="../../media/base/sample.jpg" alt="まいけむSTC">
+      </div>
+
+      <div class="grid__wrapper">
+        <div class="popular-article__wrapper">
+          {% for publish in publish_list|slice:"6" %}
+          <article class="card popular-article">
+            <a class="popular-article__link" href='{% url 'detail' publish.pk %}'>
+
+            {% comment %} ここの画像サイズは固定値 or obj-fitで固定にすべき {% endcomment %}
+              {% if publish.image %}
+              <img src="../../media/{{ publish.image }}" alt="">
+              {% else %}
+              <img src="../../media/header/header-logo_2012.jpg" alt="">
+              {% endif %}
+            {% comment %} ここの画像サイズは固定値 or obj-fitで固定にすべき {% endcomment %}
+
+              <div class="card-body popular-article__content">
+                <div class="popular-article__content--flex">
+                  <p class="popular-article__content-label">{{ publish.category }}</p>
+                  <p class="card-text"><small class="text-muted">{{ publish.created_at|date:"Y.m.d." }}</small></p>
+                </div>
+                <section class="popular-article__content-textBox">
+                  <h3 class="popular-article__content-title">{{ publish.title }}</h3>
+                  <p class="popular-article__content-subTitle">{{ publish.description }}</p>
+                </section>
+              </div>
+            </a>
+          </article>
+          {% endfor %}
+        </div>
+        <div class="button grid__wrapper-link">
+          <a href="{% url 'list' %}" class="btn btn-lg button-link">
+            <span>投稿一覧を見る</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right button-icon" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </main>
     {% endblock content %}
     
     {% comment %}
