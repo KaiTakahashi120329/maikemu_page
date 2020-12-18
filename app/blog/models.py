@@ -16,11 +16,11 @@ class Category(models.Model):
 class DiaryQuerySet(models.QuerySet):
     def published(self):
         return self.filter(publish_at__lte=timezone.now())
-
+        
 # 投稿機能のモデル
 class BaseModel(models.Model):
     title = models.CharField('タイトル', max_length=50)
-    image = models.ImageField('サムネイル', upload_to='media/', null=True)
+    image = models.ImageField('サムネイル', upload_to='media/', null=True, blank=True)
     description = models.CharField('説明（25文字）', max_length=25, null=True)
     text = models.TextField('メインコンテンツ')
     created_at = models.DateTimeField(auto_now_add=True)
