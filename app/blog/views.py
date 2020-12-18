@@ -5,6 +5,7 @@ from .models import BaseModel, Category
 from .forms import  ContactForm
 from django.core.mail import send_mail
 import datetime
+from django.utils import timezone
 
 def CategoryFunc(request, category):
     category = Category.objects.get(name=category)
@@ -12,9 +13,9 @@ def CategoryFunc(request, category):
     return render(request, 'category.html', { 'category':category, 'publish_list':publish_list})
 
 def BlogFunc(request):
-    publish_list = BaseModel.objects.published()
-    blog_views = BaseModel.objects.published().order_by('-views')
-    return render(request, 'top.html',  {'publish_list':publish_list, 'blog_views':blog_views})
+    publish_list = BaseModel.objects.published().order_by('-publish_at')
+    publish_view_list = BaseModel.objects.published().order_by('-views')
+    return render(request, 'top.html',  {'publish_list':publish_list, 'publish_view_list':publish_view_list})
 
 def ListFunc(request):
     publish_list = BaseModel.objects.published()
