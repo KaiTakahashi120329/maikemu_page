@@ -159,3 +159,28 @@
     width: 7%;
   }
 }
+
+// =============================
+// button
+// =============================
+.button {
+  &-link {
+    background-color: #007bff; // bootstrapオーバーライド
+    border-color: #007bff; // bootstrapオーバーライド
+    color: #ffffff; // bootstrapオーバーライド
+    padding: 1rem 2rem; // bootstrapオーバーライド
+
+    &:hover {
+      background-color: #ffffff;
+      color:#007bff;
+    }
+    
+    > span {
+      font-size: 1.4rem; // bootstrapオーバーライド
+    }
+  }
+
+  &-icon {
+    margin-bottom: 3px;
+  }
+}
