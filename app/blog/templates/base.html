@@ -109,7 +109,7 @@
         <img src="../../media/base/sample.jpg" alt="まいけむSTC">
       </div>
 
-      <div class="grid__wrapper">
+      <div class="grid__inner">
         <div class="popular-article__wrapper">
           {% for publish in publish_list|slice:"6" %}
           <article class="card popular-article">
@@ -137,7 +137,7 @@
           </article>
           {% endfor %}
         </div>
-        <div class="button grid__wrapper-link">
+        <div class="button grid__inner-link">
           <a href="{% url 'list' %}" class="btn btn-lg button-link">
             <span>投稿一覧を見る</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right button-icon" viewBox="0 0 16 16">
