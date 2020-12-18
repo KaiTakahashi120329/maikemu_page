@@ -1,5 +1,8 @@
 @import '../../config/common.scss';
 
+// =============================
+// grid
+// =============================
 .grid_wrapper {
   display: grid;
   grid-template-columns: 75% 25%;
@@ -13,6 +16,9 @@
   }
 }
 
+// =============================
+// popular-article__wrapper
+// =============================
 .popular-article__wrapper {
   display: grid;
   grid-template-columns: 30% 30% 30%;
@@ -78,6 +84,9 @@
   }
 }
 
+// =============================
+// morePopular-article__wrapper
+// =============================
 .morePopular-article__wrapper--position {
   position: relative;
 }
