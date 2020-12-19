@@ -18,8 +18,9 @@ def BlogFunc(request):
     return render(request, 'top.html',  {'publish_list':publish_list, 'publish_view_list':publish_view_list})
 
 def ListFunc(request):
-    publish_list = BaseModel.objects.published()
-    return render(request, 'list.html',  {'publish_list':publish_list})
+    publish_list = BaseModel.objects.published().order_by('-publish_at')
+    publish_view_list = BaseModel.objects.published().order_by('-views')
+    return render(request, 'list.html',  {'publish_list':publish_list, 'publish_view_list':publish_view_list})
 
 def DetailFunc(request, pk):
     objects = get_object_or_404(BaseModel, pk=pk)
