@@ -17,11 +17,11 @@
     <title>まいけむSTC</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% sass_src '../static/base/style.scss' %}">
-    <link rel="stylesheet" href="{% sass_src '../static/config/common.scss' %}">
-    <link rel="stylesheet" href="{% sass_src '../static/config/reset.scss' %}">
+    <link rel="stylesheet" href="{% sass_src '../static/css/base/style.scss' %}">
+    <link rel="stylesheet" href="{% sass_src '../static/css/config/common.scss' %}">
+    <link rel="stylesheet" href="{% sass_src '../static/css/config/reset.scss' %}">
     {% block head %}
-    <link rel="stylesheet" href="{% sass_src '../static/base/content/style.scss' %}">
+    <link rel="stylesheet" href="{% sass_src '../static/css/base/content/style.scss' %}">
     {% endblock head %}
   </head>
 
@@ -110,7 +110,8 @@
           <img src="../../media/base/sample.jpg" alt="まいけむSTC">
         </div>
 
-        <div class="grid__inner">
+        <section class="grid__inner">
+          <h3><span>投稿一覧</span></h3>
           <div class="popular-article__wrapper">
             {% for publish in publish_list|slice:"6" %}
             <article class="card popular-article">
@@ -149,14 +150,14 @@
               </svg>
             </a>
           </div>
-        </div>
+        </section>
       </main>
 
       <!-- morePopular-article -->
       <div class="morePopular-article__wrapper--position">
         <section class="morePopular-article__wrapper">
           <h3>人気の記事</h3>
-          {% for publish in publish_list|slice:"3" %}
+          {% for publish in publish_view_list|slice:"3" %}
           <article class="card morePopular-article">
             <a class="morePopular-article__link" href='{% url 'detail' publish.pk %}'>
   
@@ -215,5 +216,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    {% block script_tag %}
+    {% endblock script_tag %}
   </body>
 </html>
