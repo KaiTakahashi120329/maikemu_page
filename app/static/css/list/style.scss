@@ -89,6 +89,14 @@
 // =============================
 // js is-tag
 // =============================
+.popular-article__not-exist {
+  @include font-family();
+  margin-top: 15px;
+}
+
+// =============================
+// js is-tag
+// =============================
 .is-active {
   background-color: #ffffff;
   visibility: visible;

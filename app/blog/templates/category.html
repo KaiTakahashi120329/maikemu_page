@@ -8,7 +8,7 @@
   <meta property="og:image" content="サムネイル画像の URL" />
   <meta property="og:site_name" content="まいけむSTC" />
   <meta property="og:description" content="宮城県ソフトテニスクラブ まいけむSTC ホームページ" />
-  {% endblock ogp %}
+{% endblock ogp %}
 {% block head %}
   <link rel="stylesheet" href="{% sass_src '../static/css/base/content/style.scss' %}">
   <link rel="stylesheet" href="{% sass_src '../static/css/list/style.scss' %}">
@@ -45,6 +45,7 @@
       </div>
 
       <!-- popular-article__wrapper -->
+      {% if publish_list %}
       <div class="popular-article__wrapper">
         {% for publish in publish_list %}
         <article class="card popular-article">
@@ -73,6 +74,9 @@
         </article>
         {% endfor %}
       </div>
+      {% else %}
+      <h2 class="popular-article__not-exist">該当のカテゴリーは存在しません。</h2>
+      {% endif %}
       <div class="button grid__inner-link">
         <a href="{% url 'list' %}" class="btn btn-lg button-link">
           <span>投稿一覧を見る</span>
