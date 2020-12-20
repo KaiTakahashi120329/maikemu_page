@@ -10,7 +10,8 @@ from django.utils import timezone
 def CategoryFunc(request, category):
     category = Category.objects.get(name=category)
     publish_list = BaseModel.objects.published().filter(category=category)
-    return render(request, 'category.html', { 'category':category, 'publish_list':publish_list})
+    publish_view_list = BaseModel.objects.published().order_by('-views')
+    return render(request, 'category.html', { 'category':category, 'publish_list':publish_list ,'publish_view_list':publish_view_list})
 
 def BlogFunc(request):
     publish_list = BaseModel.objects.published().order_by('-publish_at')
