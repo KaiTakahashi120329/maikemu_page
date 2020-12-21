@@ -28,12 +28,20 @@
   }
 
   p {
-    font-size: 1.6rem;
     font-weight: bold;
     letter-spacing: .8;
     line-height: 1.5;
     margin-top: 40px;
     text-align: center;
+  }
+  
+  &__text {
+    font-size: 1.6rem;
+  }
+
+  &__annotation {
+    color: red;
+    font-size: 1.2rem;
   }
 }
 
@@ -54,12 +62,25 @@
   font-size: 1.6rem;
   width: 60%;
   margin: 20px auto 0;
+
+  &--onlyContent {
+    margin-top: 30px;
+  }
+
+  &__name {
+    font-size: 1.6rem;
+  }
+
+  &__value {
+    font-size: 1.4rem;
+    margin-top: 10px;
+  }
 }
 
 .contact__privacy {
   color: #818181;
   font-size: 1.2rem;
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: center;
 
   > a {
