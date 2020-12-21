@@ -19,7 +19,7 @@
 <main class="contact">
   <section class="contact-info">
     <h1 class="contact-info__title"><span>お問い合わせフォーム</span></h1>
-    <p>ご質問・ご相談は以下のフォームからお送りください。<br>内容確認次第、担当者よりご連絡させていただきます。</p>
+    <p class="contact-info__text">ご質問・ご相談は以下のフォームからお送りください。<br>内容確認次第、担当者よりご連絡させていただきます。</p>
   </section>
   <div class="contact__wrapper">
     <form class="my-form contact__form-group__wrapper" action="" method="POST">
@@ -46,10 +46,9 @@
         <label for="id_email">メッセージ</label>
         {{ form.message }}
       </div>
-      <p class="contact__privacy"><a href="{% url 'list' %}">プライバシーポリシー</a>に同意のうえ、ご送信ください。</p>
       <div class="contact__form-group button">
         {% csrf_token %}
-        <button type="submit" class="btn btn-lg button-link">同意して送信</button>
+        <button type="submit" class="btn btn-lg button-link">内容を確認する</button>
       </div>
     </form>
   </div>
