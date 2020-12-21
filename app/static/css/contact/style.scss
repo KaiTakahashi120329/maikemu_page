@@ -1,0 +1,68 @@
+@import '../../css/config/common.scss';
+
+.contact {
+  margin: 110px 3% 80px;
+}
+
+.contact-info {
+  width: 60%;
+  margin: 0 auto;
+
+  &__title {
+    @include font-family();
+    border-left: 4px solid gray;
+    font-size: 2.3rem;
+    font-weight: bold;
+    padding: 8px;
+  
+    > span {
+      display: block;
+      padding-left: 3px;
+    }
+  }
+
+  p {
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: .8;
+    line-height: 1.5;
+    margin-top: 40px;
+    text-align: center;
+  }
+}
+
+.contact__wrapper {
+  margin-top: 40px;
+}
+
+.contact__form-group__wrapper {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.contact__form-group {
+  font-size: 1.6rem;
+  width: 60%;
+  margin: 20px auto 0;
+}
+
+.contact__privacy {
+  color: #818181;
+  font-size: 1.2rem;
+  margin-top: 30px;
+  text-align: center;
+
+  > a {
+    color: #818181;
+    text-decoration: underline;
+  }
+}
+
+.button {
+  text-align: center;
+
+  > .button-link {
+    letter-spacing: 0.7px;
+  }
+}
