@@ -14,7 +14,7 @@
   h3 {
     @include font-family();
     border-left: 4px solid gray;
-    font-size: 1.8rem;
+    font-size: 2.3rem;
     font-weight: bold;
     padding: 8px;
 
@@ -113,7 +113,7 @@
   > h3 {
     @include font-family();
     background-color: #f2f2f2;
-    font-size: 1.6rem;
+    font-size: 2.0rem;
     font-weight: bold;
     margin: 20px 10% 0 10%;
     padding: 14px 0;
