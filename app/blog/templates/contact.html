@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load sass_tags %}
+
+{% block ogp %}
+  <meta property="og:title" content="宮城県ソフトテニスクラブ まいけむSTC ホームページ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="ページの URL" />
+  <meta property="og:image" content="サムネイル画像の URL" />
+  <meta property="og:site_name" content="まいけむSTC" />
+  <meta property="og:description" content="宮城県ソフトテニスクラブ まいけむSTC ホームページ" />
+{% endblock ogp %}
+{% block head %}
+  <link rel="stylesheet" href="{% sass_src '../static/css/base/content/style.scss' %}">
+  <link rel="stylesheet" href="{% sass_src '../static/css/contact/style.scss' %}">
+{% endblock head %}
+
+{% block content %}
+
+<main class="contact">
+  <section class="contact-info">
+    <h1 class="contact-info__title"><span>お問い合わせフォーム</span></h1>
+    <p>ご質問・ご相談は以下のフォームからお送りください。<br>内容確認次第、担当者よりご連絡させていただきます。</p>
+  </section>
+  <div class="contact__wrapper">
+    <form class="my-form contact__form-group__wrapper" action="" method="POST">
+      <div class="form-group contact__form-group">
+        <label for="id_email">お名前</label>
+        {{ form.name }}
+      </div>
+      <div class="form-group contact__form-group pb-0">
+        <label for="id_email">メールアドレス</label>
+        {{ form.email }}
+      </div>
+      <div class="form-group contact__form-group">
+        <ul class="errorlist m-0 p-0">
+          <li>
+          {% if form.email.errors %}
+              {% for error in form.email.errors %}
+                  {{ error|escape }}
+              {% endfor %}
+          {% endif %}
+          </li>
+        </ul>
+      </div>
+      <div class="form-group contact__form-group">
+        <label for="id_email">メッセージ</label>
+        {{ form.message }}
+      </div>
+      <p class="contact__privacy"><a href="{% url 'list' %}">プライバシーポリシー</a>に同意のうえ、ご送信ください。</p>
+      <div class="contact__form-group button">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-lg button-link">同意して送信</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+{% endblock content %}
