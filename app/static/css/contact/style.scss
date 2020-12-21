@@ -78,3 +78,18 @@
     letter-spacing: 0.7px;
   }
 }
+
+// =============================
+//　form-control
+// =============================
+.form-control {
+  font-size: 1.4rem;
+}
+
+// =============================
+//　errorlist オーバーライド
+// =============================
+.errorlist {
+  color: red;
+  font-size: 1.4rem;
+}
