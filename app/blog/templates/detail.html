@@ -25,9 +25,9 @@
         <p class="detail__post-item__date"><small class="text-muted">{{ objects.created_at|date:"Y.m.d." }}</small></p>
       </div>
 
-      {% if image %}
+      {% if objects.image %}
       <div class="detail__post-item__image">
-        <img src="{{ objects.image }}" alt="">
+        <img src="../../media/{{ objects.image }}" alt="">
       </div>
       {% endif %}
 
