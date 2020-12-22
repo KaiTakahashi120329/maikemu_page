@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load sass_tags %}
+
+{% block ogp %}
+  <meta property="og:title" content="宮城県ソフトテニスクラブ まいけむSTC ホームページ：{{ objects.title }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="ページの URL" />
+  <meta property="og:image" content="サムネイル画像の URL" />
+  <meta property="og:site_name" content="まいけむSTC" />
+  <meta property="og:description" content="{{ objects.description }}" />
+{% endblock ogp %}
+{% block head %}
+  <link rel="stylesheet" href="{% sass_src '../static/css/base/content/style.scss' %}">
+  <link rel="stylesheet" href="{% sass_src '../static/css/detail/style.scss' %}">
+{% endblock head %}
+
+{% block content %}
+
+<main class="detail">
+  <ul class="detail__post-list">
+    <li class="detail__post-item">
+      <h3 class="detail__post-item__title"><span>{{ objects.title }}</span></h3>
+      <div class="detail__post-item--flex">
+        <h4 class="detail__post-item__label">{{ objects.category }}</h4>
+        <p class="detail__post-item__date"><small class="text-muted">{{ objects.created_at|date:"Y.m.d." }}</small></p>
+      </div>
+
+      {% if image %}
+      <div class="detail__post-item__image">
+        <img src="{{ objects.image }}" alt="">
+      </div>
+      {% endif %}
+
+      <div class="detail__post-item__mainArea">
+        {% autoescape off %}
+          <p>{{ objects.text }}</p>
+        {% endautoescape %}
+      </div>
+    </li>
+  </ul>
+</main>
+
+{% endblock content %}
