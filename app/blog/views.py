@@ -24,10 +24,12 @@ def ListFunc(request):
     return render(request, 'list.html',  {'publish_list':publish_list, 'publish_view_list':publish_view_list})
 
 def DetailFunc(request, pk):
+    publish_list = BaseModel.objects.published().order_by('-publish_at')
+    publish_view_list = BaseModel.objects.published().order_by('-views')
     objects = get_object_or_404(BaseModel, pk=pk)
     objects.views += 1
     objects.save()
-    return render(request, 'detail.html', {'object':object})
+    return render(request, 'detail.html', {'objects':objects, 'publish_view_list':publish_view_list})
 
 # お問い合わせ
 class ContactView(FormView):
