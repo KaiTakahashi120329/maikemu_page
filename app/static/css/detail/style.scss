@@ -1,0 +1,77 @@
+@import '../../css/config/common.scss';
+
+// =============================
+// grid
+// =============================
+.grid_wrapper {
+  margin-top: 110px;
+}
+
+// =============================
+// detail__post
+// =============================
+.detail {
+  margin-top: 0;
+}
+
+.detail__post-list {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border: none; //bootstrapオーバーライド
+  margin: 0 10% 0 10%;
+}
+
+.detail__post-item {
+  padding: 25px 50px 50px 50px;
+
+  &__title {
+    @include font-family();
+    border-left: 4px solid gray;
+    font-size: 2.3rem;
+    font-weight: bold;
+    padding: 8px;
+
+    > span {
+      display: block;
+      padding-left: 3px;
+    }
+  }
+
+  &__label {
+    background-color: greenyellow;
+    border-radius: 10%;
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 6px 6px;
+    text-align: center;
+  }
+
+  &--flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+
+  &__date {
+    font-size: 1.5rem;
+  }
+
+  &__mainArea {
+    @include font-family();
+    font-size: 1.6rem;
+    margin-top: 40px;
+
+    // WYSIWYG Editorの設定
+    p {
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+    }
+
+    img {
+      width: 100% !important;
+    }
+  }
+}
