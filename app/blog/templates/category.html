@@ -16,102 +16,78 @@
 
 {% block content %}
 <!-- grid_wrapper -->
-<div class="grid_wrapper">
-  <main class="main">
-    <section class="grid__inner">
-      <div class="grid__inner--flex">
-        <h3>投稿一覧</h3>
-        <div class="grid__inner-categoryBox js--trigger">
-          <div class="grid__inner-categoryBox--flex">
-            <span>カテゴリー</span>
-            <div class="grid__inner-categoryBox-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="grid__inner-categoryBox__hide-nav">
-            <ul class="grid__inner-categoryBox__hide-nav__list">
-              {% for category in category_list %}
-              <li>
-                <a href='{% url 'category' category.name %}'>
-                  ・{{ category.name }}
-                </a>
-              </li>
-              {% endfor %}
-            </ul>
+<main class="main">
+  <section class="grid__inner">
+    <div class="grid__inner--flex">
+      <h3>投稿一覧</h3>
+      <div class="grid__inner-categoryBox js--trigger">
+        <div class="grid__inner-categoryBox--flex">
+          <span>カテゴリー</span>
+          <div class="grid__inner-categoryBox-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+            </svg>
           </div>
         </div>
+        <div class="grid__inner-categoryBox__hide-nav">
+          <ul class="grid__inner-categoryBox__hide-nav__list">
+            {% for category in category_list %}
+            <li>
+              <a href='{% url 'category' category.name %}'>
+                ・{{ category.name }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
+    </div>
 
-      <!-- popular-article__wrapper -->
-      {% if publish_list %}
-      <div class="popular-article__wrapper">
-        {% for publish in publish_list %}
-        <article class="card popular-article">
-          <a class="popular-article__link" href='{% url 'detail' publish.pk %}'>
-          {% comment %} ここの画像サイズは固定値 or obj-fitで固定にすべき {% endcomment %}
-            {% if publish.image %}
-            <img src="../../media/{{ publish.image }}" alt="">
-            {% else %}
-            <img src="../../media/header/header-logo_2012.jpg" alt="">
-            {% endif %}
-          {% comment %} ここの画像サイズは固定値 or obj-fitで固定にすべき {% endcomment %}
-            <div class="card-body popular-article__content">
-              <div class="popular-article__content--flex">
-                <p class="popular-article__content-label">{{ publish.category }}</p>
-                <p class="card-text"><small class="text-muted">{{ publish.created_at|date:"Y.m.d." }}</small></p>
-              </div>
-              <section class="popular-article__content-textBox">
-                <h4 class="popular-article__content-title">{{ publish.title }}</h4>
-                <p class="popular-article__content-subTitle">{{ publish.description }}</p>
-              </section>
-              <div class="popular-article__content-textLink">
-                <span>READ MORE</span>
-              </div>
-            </div>
-          </a>
-        </article>
-        {% endfor %}
-      </div>
-      {% else %}
-      <h2 class="popular-article__not-exist">該当のカテゴリーは存在しません。</h2>
-      {% endif %}
-      <div class="button grid__inner-link">
-        <a href="{% url 'list' %}" class="btn btn-lg button-link">
-          <span>投稿一覧を見る</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right button-icon" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-          </svg>
-        </a>
-      </div>
-    </section>
-  </main>
+    <!-- popular-article__wrapper -->
+    {% if publish_list %}
+    <div class="popular-article__wrapper">
+      {% for publish in publish_list %}
+      <article class="card popular-article">
+        <a class="popular-article__link" href='{% url 'detail' publish.pk %}'>
 
-  <!-- morePopular-article -->
-  <div class="morePopular-article__wrapper--position">
-    <section class="morePopular-article__wrapper">
-      <h3>人気の記事</h3>
-      {% for publish in publish_view_list|slice:"3" %}
-      <article class="card morePopular-article">
-        <a class="morePopular-article__link" href='{% url 'detail' publish.pk %}'>
-          {% comment %} ここの画像サイズは固定値 or obj-fitで固定にすべき {% endcomment %}
-          {% if publish.image %}
+        {% comment %} ここの画像サイズは固定値 or obj-fitで固定にすべき {% endcomment %}
+        {% if publish.image %}
           <img src="../../media/{{ publish.image }}" alt="">
           {% else %}
           <img src="../../media/header/header-logo_2012.jpg" alt="">
           {% endif %}
-          {% comment %} ここの画像サイズは固定値 or obj-fitで固定にすべき {% endcomment %}
-          <section class="morePopular-article__content-textBox">
-            <h3 class="morePopular-article__content-title">{{ publish.title }}</h3>
-            <p class="morePopular-article__content-subTitle">{{ publish.description }}</p>
-          </section>
+        {% comment %} ここの画像サイズは固定値 or obj-fitで固定にすべき {% endcomment %}
+
+          <div class="card-body popular-article__content">
+            <div class="popular-article__content--flex">
+              <p class="popular-article__content-label">{{ publish.category }}</p>
+              <p class="card-text"><small class="text-muted">{{ publish.created_at|date:"Y.m.d." }}</small></p>
+            </div>
+            <section class="popular-article__content-textBox">
+              <h4 class="popular-article__content-title">{{ publish.title }}</h4>
+              <p class="popular-article__content-subTitle">{{ publish.description }}</p>
+            </section>
+            <div class="popular-article__content-textLink">
+              <span>READ MORE</span>
+            </div>
+          </div>
         </a>
       </article>
       {% endfor %}
-    </section>
-  </div>
-</div>
+    </div>
+    {% else %}
+    <h2 class="popular-article__not-exist">該当のカテゴリーは存在しません。</h2>
+    {% endif %}
+    <div class="button grid__inner-link">
+      <a href="{% url 'list' %}" class="btn btn-lg button-link">
+        <span>投稿一覧を見る</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right button-icon" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</main>
 {% endblock content %}
 
 {% block script_tag %}

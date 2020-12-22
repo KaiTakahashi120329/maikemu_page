@@ -103,8 +103,8 @@
     ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     {% endcomment %}
 
-    {% block content %}
     <div class="grid_wrapper">
+    {% block content %}
       <main class="main">
         <div class="main__imageWrapper">
           <img src="../../media/base/sample.jpg" alt="まいけむSTC">
@@ -152,6 +152,7 @@
           </div>
         </section>
       </main>
+      {% endblock content %}
 
       <!-- morePopular-article -->
       <div class="morePopular-article__wrapper--position">
@@ -179,7 +180,9 @@
         </section>
       </div>
     </div>
-    {% endblock content %}
+
+    {% block otherContent %}
+    {% endblock otherContent %}
     
     {% comment %}
     ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
