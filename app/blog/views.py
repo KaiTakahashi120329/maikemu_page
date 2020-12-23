@@ -85,3 +85,6 @@ class SendEmailView(FormView):
 
 def SuccessFunc(request):
     return render(request, 'success.html')
+
+class privacyView(TemplateView):
+    template_name = 'praivacy.html'
