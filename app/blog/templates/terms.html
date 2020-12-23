@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load sass_tags %}
+
+{% block ogp %}
+  <meta property="og:title" content="宮城県ソフトテニスクラブ まいけむSTC ホームページ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="ページの URL" />
+  <meta property="og:image" content="サムネイル画像の URL" />
+  <meta property="og:site_name" content="まいけむSTC" />
+  <meta property="og:description" content="宮城県ソフトテニスクラブ まいけむSTC ホームページ" />
+{% endblock ogp %}
+{% block head %}
+  <link rel="stylesheet" href="{% sass_src '../static/css/base/content/style.scss' %}">
+  <link rel="stylesheet" href="{% sass_src '../static/css/list/style.scss' %}">
+{% endblock head %}
+
+{% block content_wrapper %}
+{% block content %}
+{% endblock content %}
+{% endblock content_wrapper %}
+
+{% block otherContent %}
+<h1>terms</h1>
+{% endblock otherContent %}
