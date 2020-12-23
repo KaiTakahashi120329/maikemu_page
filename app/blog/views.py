@@ -91,3 +91,6 @@ class privacyView(TemplateView):
 
 class termsView(TemplateView):
     template_name = 'terms.html'
+
+class aboutView(TemplateView):
+    template_name = 'about.html'

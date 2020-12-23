@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import BlogFunc, CategoryFunc, ListFunc, DetailFunc, ContactView, ContentView, SendEmailView, SuccessFunc, privacyView, termsView
+from .views import BlogFunc, CategoryFunc, ListFunc, DetailFunc, ContactView, ContentView, SendEmailView, SuccessFunc, privacyView, termsView, aboutView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
     path('contact/success/', SuccessFunc, name='success'),
     path('privacy/', privacyView.as_view(), name='privacy'),
     path('terms/', termsView.as_view(), name='terms'),
+    path('about/', aboutView.as_view(), name='about'),
 ]
