@@ -88,3 +88,6 @@ def SuccessFunc(request):
 
 class privacyView(TemplateView):
     template_name = 'praivacy.html'
+
+class termsView(TemplateView):
+    template_name = 'terms.html'
