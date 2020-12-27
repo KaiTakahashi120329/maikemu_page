@@ -1,5 +1,8 @@
 @import '../config/common.scss';
 
+// =============================
+// main
+// =============================
 main {
   width: 60%;
   margin: 110px auto 80px;
@@ -13,6 +16,9 @@ p {
   margin-top: 20px;
 }
 
+// =============================
+// otherPage-title
+// =============================
 .otherPage-title {
   @include font-family();
   border-left: 4px solid gray;
@@ -32,6 +38,9 @@ p {
   font-weight: bold;
 }
 
+// =============================
+// praivacy-content
+// =============================
 .praivacy-content__list-item {
   @include font-family();
   font-size: 1.5rem;
