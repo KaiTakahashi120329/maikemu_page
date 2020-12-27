@@ -40,7 +40,7 @@
         <p class="contact__form-group__name">メッセージ</p>
         <p class="contact__form-group__value" style="word-wrap: break-word;">{{ form.message.value }}</p>
       </div>
-      <p class="contact__privacy"><a href="{% url 'list' %}">プライバシーポリシー</a>に同意のうえ、ご送信ください。</p>
+      <p class="contact__privacy"><a href="{% url 'privacy' %}">プライバシーポリシー</a>に同意のうえ、ご送信ください。</p>
       <form class="my-form" action="{% url 'send' %}" method="POST">
         <div class="contact__form-group button">
           <div style="display:none">
