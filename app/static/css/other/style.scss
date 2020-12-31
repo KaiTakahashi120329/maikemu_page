@@ -54,6 +54,14 @@ p {
     > li {
       list-style-type: decimal;
       margin: 10px 0 0 20px;
+      
+      &.praivacy-content--marginTop {
+        margin: 20px 0 0 20px;
+      }
     }
+  }
+
+  &--textLink {
+    text-decoration: underline;
   }
 }
