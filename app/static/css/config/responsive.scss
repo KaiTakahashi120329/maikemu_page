@@ -1,0 +1,25 @@
+$breakpoints: (
+  'smallMobile': 'screen and (max-width: 374px)',
+  'mobile': 'screen and (max-width: 959px)',
+  'tablet': 'screen and (min-width: 600px) and (max-width: 959px)',
+  'desktop': 'screen and (min-width: 960px)',
+  'largeDesktop': 'screen and (min-width: 1280px)',
+) !default;
+
+@mixin mediaQuery($breakpoint: desktop) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+.displayNone_desktop {
+  @include mediaQuery () {
+    display: none;
+  }
+}
+
+.displayNone_mobile {
+  @include mediaQuery (mobile) {
+    display: none;
+  }
+}
