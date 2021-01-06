@@ -1,3 +1,5 @@
+@import '../config/responsive.scss';
+
 // =============================
 // header
 // =============================
@@ -7,21 +9,40 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 75px;
   z-index: 9999;
+  @include mediaQuery (mobile) {
+    padding: 0 15px;
+  }
+
+  @include mediaQuery () {
+    justify-content: space-around;
+  }
 
   &__header-title {
-    font-size: 1.8rem;
-    width: 50%;
-    text-align: center;
-
+    @include mediaQuery () {
+      width: 50%;
+      text-align: center;
+    }
+    
     h1 {
-      margin-right: 20px;
+      font-size: 1.8rem;
+      margin-right: 3px;
+      @include mediaQuery (mobile) {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      @include mediaQuery () {
+        font-size: 2.5rem;
+        margin-right: 20px;
+      }
     }
 
     &--hoverNone:hover {
@@ -32,6 +53,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      @include mediaQuery (mobile) {
+        flex-direction: row-reverse;
+      }
     }
 
     &__image {
@@ -42,7 +66,46 @@
   }
 
   &__nav {
-    width: 50%;
+    @include mediaQuery () {
+      width: 50%;
+    }
+
+    @include mediaQuery (mobile) {
+      &-mobileWrapper {
+
+        &--hide {
+          display: none;
+        }
+  
+        &-hideContent {
+          display: none;
+        }
+
+        &-list {
+          background-color: #ffffff;
+          position: absolute;
+          top: 75px;
+          left: 0;
+          right: 0;
+          height: 100vh;
+        }
+
+        &-list__item {
+          border-bottom: 1px solid #e6e6e6;
+          font-size: 1.6rem;
+          padding: 10px 0;
+          text-align: center;
+        }
+      }
+    }
+
+    .is--hide {
+      display: none;
+    }
+
+    .is--open {
+      display: block;
+    }
   }
 
   &__nav-list {
