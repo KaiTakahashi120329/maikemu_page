@@ -208,6 +208,12 @@
     align-items: center;
     justify-content: center;
 
+    @media screen and (max-width: 374px) {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0 15px;
+    }
+
     &__item {
       margin: 0 2%;
     }
@@ -219,7 +225,11 @@
 
   &__content-logoWrapper {
     margin: 15px auto;
-    width: 7%;
+    width: 20%;
+
+    @include mediaQuery () {
+      width: 7%;
+    }
   }
 }
 

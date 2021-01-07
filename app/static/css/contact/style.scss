@@ -82,11 +82,12 @@
 }
 
 .contact__form-group {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   width: 85%;
   margin: 20px auto 0;
 
   @include mediaQuery () {
+    font-size: 1.6rem;
     width: 60%;
   }
 
@@ -95,7 +96,10 @@
   }
 
   &__name {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    @include mediaQuery () {
+      font-size: 1.6rem;
+    }
   }
 
   &__value {

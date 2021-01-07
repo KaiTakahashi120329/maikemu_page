@@ -1,19 +1,32 @@
 @import '../config/common.scss';
+@import '../config/responsive.scss';
 
 // =============================
 // main
 // =============================
 main {
-  width: 60%;
-  margin: 110px auto 80px;
+  margin: 110px 15px 80px;
+
+  @include mediaQuery (mobile) {
+    padding: 0 15px;
+  }
+
+  @include mediaQuery () {
+    width: 60%;
+    margin: 110px auto 80px;
+  }
 }
 
 p {
   @include font-family();
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1.3;
   letter-spacing: 0.8px;
   margin-top: 20px;
+
+  @include mediaQuery () {
+    font-size: 1.5rem;
+  }
 }
 
 // =============================
@@ -39,8 +52,12 @@ p {
 
 .otherPage-Subtitle {
   @include font-family();
-  font-size: 2.1rem;
+  font-size: 2.0rem;
   font-weight: bold;
+
+  @include mediaQuery () {
+    font-size: 2.1rem;
+  }
 }
 
 // =============================
@@ -48,10 +65,15 @@ p {
 // =============================
 .praivacy-content__list-item {
   @include font-family();
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1.3;
   letter-spacing: 0.8px;
   margin-top: 30px;
+  
+  @include mediaQuery () {
+    font-size: 1.5rem;
+  }
+  
 
   &__order-list {
     margin: 20px 0 0 15px;
