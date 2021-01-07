@@ -1,0 +1,17 @@
+@import '../config/common.scss';
+@import '../config/responsive.scss';
+
+main {
+  margin: 120px 0 0;
+}
+
+.coming-soon__info {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+}
