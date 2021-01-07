@@ -1,4 +1,5 @@
 @import '../config/common.scss';
+@import '../config/responsive.scss';
 
 // =============================
 // grid
@@ -7,16 +8,19 @@
   margin-top: 110px;
 }
 
-.grid__inner {
-  margin: 0 3%;
-  position: relative;
-
-  &--flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.listmain {
+  .grid__inner {
+    margin: 0 3%;
+    position: relative;
+  
+    &--flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }
+
 
 .main {
   margin-top: 0;
@@ -66,18 +70,26 @@
     padding: 10px 0;
     position: absolute;
     left: -10px;
+    width: 140%;
     transition: all .2s linear;
     visibility: hidden;
-    width: 170%;
     z-index: -9999;
+    
+    @include mediaQuery () {
+      width: 170%;
+    }
   }
 
   &__hide-nav__list {
     > li {
       display: flex;
       align-items: center;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       padding-left: 10px;
+
+      @include mediaQuery () {
+        font-size: 1.4rem;
+      }
 
       &:nth-of-type(n + 2) {
         margin-top: 5px;
