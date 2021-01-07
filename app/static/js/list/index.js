@@ -1,6 +1,6 @@
-const trigger = document.querySelectorAll('.js--trigger');
+const listTrigger = document.querySelectorAll('.js--trigger-list');
 
-[].slice.call(trigger).forEach(element => {
+[].slice.call(listTrigger).forEach(element => {
   element.addEventListener('click', () => {
 
     // 対象の要素取得
