@@ -1,25 +1,42 @@
 @import '../../css/config/common.scss';
+@import '../../css/config/responsive.scss';
 
 // =============================
 // contact
 // =============================
 .contact {
-  margin: 110px 3% 80px;
+  margin: 110px 0 80px;
+
+  @include mediaQuery () {
+    margin: 110px 3% 80px;
+  }
 }
 
 // =============================
 // contact-info
 // =============================
 .contact-info {
-  width: 60%;
-  margin: 0 auto;
+
+  @include mediaQuery (mobile) {
+    padding: 0 15px;
+  }
+
+  @include mediaQuery () {
+    width: 60%;
+    margin: 0 auto;
+  }
 
   &__title {
     @include font-family();
-    border-left: 4px solid gray;
-    font-size: 2.3rem;
+    border-left: 3px solid gray;
+    font-size: 2.0rem;
     font-weight: bold;
     padding: 8px;
+
+    @include mediaQuery () {
+      border-left: 4px solid gray;
+      font-size: 2.3rem;
+    }
   
     > span {
       display: block;
@@ -66,8 +83,12 @@
 
 .contact__form-group {
   font-size: 1.6rem;
-  width: 60%;
+  width: 85%;
   margin: 20px auto 0;
+
+  @include mediaQuery () {
+    width: 60%;
+  }
 
   &--onlyContent {
     margin-top: 30px;
