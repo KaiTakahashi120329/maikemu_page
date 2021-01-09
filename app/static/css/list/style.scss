@@ -79,12 +79,8 @@
     > li {
       display: flex;
       align-items: center;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       padding-left: 10px;
-
-      @include mediaQuery () {
-        font-size: 1.4rem;
-      }
 
       &:nth-of-type(n + 2) {
         margin-top: 5px;
