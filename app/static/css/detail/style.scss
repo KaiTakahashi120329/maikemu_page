@@ -1,4 +1,5 @@
 @import '../../css/config/common.scss';
+@import '../../css/config/responsive.scss';
 
 // =============================
 // grid
@@ -17,18 +18,33 @@
 .detail__post-list {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border: none; //bootstrapオーバーライド
-  margin: 0 10% 0 10%;
+  @include mediaQuery (mobile) {
+    margin: 0 15px;
+  }
+
+  @include mediaQuery () {
+    margin: 0 10% 0 10%;
+  }
 }
 
 .detail__post-item {
-  padding: 25px 50px 50px 50px;
+  padding: 25px 15px 40px 15px;
+
+  @include mediaQuery () {
+    padding: 25px 50px 50px 50px;
+  }
 
   &__title {
     @include font-family();
-    border-left: 4px solid gray;
-    font-size: 2.3rem;
+    border-left: 3px solid gray;
+    font-size: 2.0rem;
     font-weight: bold;
     padding: 8px;
+
+    @include mediaQuery () {
+      border-left: 4px solid gray;
+      font-size: 2.3rem;
+    }
 
     > span {
       display: block;
@@ -62,8 +78,13 @@
 
   &__mainArea {
     @include font-family();
-    font-size: 1.6rem;
-    margin-top: 40px;
+    font-size: 1.4rem;
+    margin-top: 30px;
+
+    @include mediaQuery () {
+      font-size: 1.6rem;
+      margin-top: 40px;
+    }
 
     // WYSIWYG Editorの設定
     p {
