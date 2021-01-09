@@ -202,6 +202,7 @@
         </main>
       {% endblock content %}
 
+        {% if publish_view_list %}
         <!-- morePopular-article -->
         <div class="morePopular-article__wrapper--position displayNone_mobile">
           <section class="morePopular-article__wrapper">
@@ -227,6 +228,7 @@
             {% endfor %}
           </section>
         </div>
+        {% endif %}
       </div>
     {% endblock content_wrapper %}
 
@@ -238,7 +240,7 @@
     {% endcomment %}
 
     <!-- footer -->
-    <footer class="footer">
+    <footer id="footer" class="footer">
       <ul class="footer__content-list">
         <li class="footer__content-list__item">
           <a href="{% url 'terms' %}" class="footer__content-list__link">
